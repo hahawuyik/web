@@ -1,0 +1,1 @@
+import{t as e}from"./request-qinbN7LA.js";var t=t=>e.post(`/favorites/${t}`),n=t=>e.get(`/favorites`,{params:t}),r=t=>e.delete(`/favorites/${t}`);export{r as n,t as r,n as t};

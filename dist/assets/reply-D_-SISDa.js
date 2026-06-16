@@ -1,0 +1,1 @@
+import{t as e}from"./request-qinbN7LA.js";var t=(t,n)=>e.post(`/replies/${t}`,n),n=t=>e.delete(`/replies/${t}`);export{n,t};

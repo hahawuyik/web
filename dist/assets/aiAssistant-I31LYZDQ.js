@@ -1,0 +1,1 @@
+import{t as e}from"./request-qinbN7LA.js";var t=()=>e.get(`/ai-assistants`);export{t};

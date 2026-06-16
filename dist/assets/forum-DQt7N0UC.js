@@ -1,0 +1,1 @@
+import{t as e}from"./request-qinbN7LA.js";var t=()=>e.get(`/forums`),n=t=>e.get(`/forums/${t}`);export{t as n,n as t};

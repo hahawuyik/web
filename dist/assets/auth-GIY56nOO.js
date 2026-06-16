@@ -1,0 +1,1 @@
+import{t as e}from"./request-qinbN7LA.js";var t=t=>e.post(`/auth/register`,t),n=t=>e.post(`/auth/login`,t),r=t=>e.post(`/auth/forgot-password`,t),i=t=>e.post(`/auth/reset-password`,t);export{i,n,t as r,r as t};
