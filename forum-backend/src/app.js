@@ -51,7 +51,7 @@ app.use('/api/upload', require('./routes/upload'));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // 所有非 API 请求都返回 index.html（让 Vue Router 处理）
-app.get('*', (req, res) => {
+app.get('/*splat', (req, res) => {
   // 如果请求路径以 /api 或 /uploads 开头，说明是后端接口或上传文件，返回 404
   if (req.path.startsWith('/api') || req.path.startsWith('/uploads')) {
     return res.status(404).json({ msg: '路由不存在' });
