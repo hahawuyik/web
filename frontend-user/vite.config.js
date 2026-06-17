@@ -10,18 +10,18 @@ export default defineConfig({
     }
   },
   server: {
+    host: '0.0.0.0',
     port: 5174,
+    allowedHosts: true,   // 关键配置
     proxy: {
       '/api': {
         target: 'http://localhost:3000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '/api')
       },
-      // 👇 新增图片代理
       '/uploads': {
-        target: 'http://localhost:3000',  // 与后端端口一致
+        target: 'http://localhost:3000',
         changeOrigin: true
-        // 不需要 rewrite，直接转发 /uploads/xxx 到后端
       }
     }
   }

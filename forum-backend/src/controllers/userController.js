@@ -1,6 +1,6 @@
 const { User, Notification, Post, Reply, WeeklyReport, EmotionLog, Vote } = require('../models');
 const { Op } = require('sequelize');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 exports.getProfile = async (req, res) => {
   const user = await User.findByPk(req.user.id, {

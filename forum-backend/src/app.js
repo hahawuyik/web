@@ -41,10 +41,25 @@ app.use('/api/ai-chat', require('./routes/aiChat'));
 app.use('/api/gratitude', require('./routes/gratitude'));
 app.use('/api/psychological-tests', require('./routes/psychologicalTests'));
 app.use('/api/upload', require('./routes/upload'));
-// 404 处理
-app.use((req, res) => {
-  res.status(404).json({ msg: '路由不存在' });
+// // 404 处理
+// app.use((req, res) => {
+//   res.status(404).json({ msg: '路由不存在' });
+// });
+
+
+// ========== 托管前端打包文件 ==========
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// 所有非 API 请求都返回 index.html（让 Vue Router 处理）
+app.get('*', (req, res) => {
+  // 如果请求路径以 /api 或 /uploads 开头，说明是后端接口或上传文件，返回 404
+  if (req.path.startsWith('/api') || req.path.startsWith('/uploads')) {
+    return res.status(404).json({ msg: '路由不存在' });
+  }
+  // 否则返回前端 index.html
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
+// ====================================
 
 // 全局错误处理
 app.use((err, req, res, next) => {
